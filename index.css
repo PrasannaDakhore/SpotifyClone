@@ -14,9 +14,8 @@ font-family: 'Ubuntu','san-serif';
 nav ul{
     display: flex;
     list-style-type:none ;
-    height: 65px;
+    height: 55px;
     align-items: center;
-
     background-color: black;
     color: white;
 }
@@ -38,7 +37,7 @@ nav ul li{
 .container{
     background-color: black;
     color: white;
-    min-height: 72vh;
+    min-height: 68vh;
     font-family: 'Varela Round','sans-serif';
     display: flex;
     margin: 23px auto;
@@ -47,20 +46,10 @@ nav ul li{
     padding: 24px;
     background-image: url('bg1.jpg');
     background-size: 95%;
+    background-repeat: no-repeat;
     
 }
-.bottom{
-    position: sticky;
-    height: 130px;
-    background-color: black;
-    color: white;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    
-}
+
 .icons{
     margin-top: 14px;
 }
@@ -107,4 +96,50 @@ border-radius: 24px;
 .songInfo img {
     opacity: 0;
     transition: opacity 0.8s ease-in;
+}
+
+.songList{
+    overflow-y:auto;
+    height: 62vh;
+}
+
+@media screen and (max-width:900px) {
+.bottom{
+    position: sticky;
+    height: 130px;
+    background-color: black;
+    color: white;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+.bottom .songInfo{
+    position: absolute;
+    top:5px;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.bottom .icons{
+   height: 10px;
+}
+}
+@media screen and (min-width:900px) {
+.bottom{
+    position: sticky;
+    height: 100px;
+    background-color: black;
+    color: white;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+    
 }
