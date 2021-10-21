@@ -17,4 +17,4 @@ the sample UI :
 
 
 The responsive UI :
-![mobileScreen](/'spotifyClone myProject2.jpg')
+![mobileScreen](SpotifyClone/spotifyClone myProject 2.jpg)
