@@ -13,8 +13,8 @@ play song from list and paus from master key
 
 
 the sample UI :
-(spotifyClone myProject.jpg)
+![laptopScreen](spotifyClone myProject.jpg)
 
 
 The responsive UI :
-(spotifyClone myProject2.jpg)
+![mobileScreen](spotifyClone myProject2.jpg)
