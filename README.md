@@ -12,4 +12,9 @@ pause song from list
 play song from list and paus from master key
 
 
+the sample UI :
+(spotifyClone myProject.jpg)
 
+
+The responsive UI :
+(spotifyClone myProject2.jpg)
