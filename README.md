@@ -17,4 +17,4 @@ the sample UI :
 
 
 The responsive UI :
-![mobileScreen](SpotifyClone/spotifyClone myProject 2.jpg)
+![mobileScreen](https://github.com/PrasannaDakhore/SpotifyClone/blob/main/spotifyClone%20myProject%202.jpg)
