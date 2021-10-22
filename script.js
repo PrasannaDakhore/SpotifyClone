@@ -6,43 +6,45 @@ let myProgressBar = document.getElementById("myProgressBar");
 let gif = document.getElementById("gif");
 let songItems = Array.from(document.getElementsByClassName("songItem"));
 let masterSongName = document.getElementById("masterSongName");
+let masterTimeStamp = document.getElementById("masterTimeStamp");
 
 let songs = [
   {
     songName: "Faded",
     filePath: "songs/m1.mp3",
-    coverPath: "./covers/faded.jpg",
+    coverPath: "./covers/faded.jpg",duration:"00:04:24"
   },
   {
     songName: "Cheap Thrills",
     filePath: "songs/m2.mp3",
-    coverPath: "./covers/cheapthrills.jpg",
+    coverPath: "./covers/cheapthrills.jpg",duration:"00:03:44"
   },
   {
     songName: "Aabaad Barbaad",
     filePath: "songs/m3.mp3",
-    coverPath: "./covers/aabadbarbad.jpg",
+    coverPath: "./covers/aabadbarbad.jpg",duration:"00:05:09"
   },
   {
     songName: "Baarish",
     filePath: "songs/m4.mp3",
-    coverPath: "./covers/baarish.jpg",
+    coverPath: "./covers/baarish.jpg",duration:"00:04:36"
   },
   {
     songName: "Jingle Bells",
     filePath: "songs/m5.mp3",
-    coverPath: "./covers/jinglebell.jpg",
+    coverPath: "./covers/jinglebell.jpg",duration:"00:03:16"
   },
   {
     songName: "O Aashiqa",
     filePath: "songs/m6.mp3",
-    coverPath: "./covers/Oashiqua.jpg",
+    coverPath: "./covers/Oashiqua.jpg",duration:"00:05:24"
   },
 ];
 
 songItems.forEach((element, i) => {
   element.getElementsByTagName("img")[0].src = songs[i].coverPath;
   element.getElementsByClassName("songName")[0].innerHTML = songs[i].songName;
+  element.getElementsByClassName("timestamp")[0].innerHTML = songs[i].duration;
 });
 
 // audioElement.play();
@@ -109,6 +111,7 @@ Array.from(document.getElementsByClassName("songItemPlay")).forEach(
               e.target.classList.add("fa-pause-circle");
               audioElement.src = "songs/m" + `${songIndex + 1}` + ".mp3";
               masterSongName.innerText = songs[songIndex].songName;
+              masterTimeStamp.innerText = songs[songIndex].duration;
               audioElement.currentTime = 0;
               audioElement.play();
               gif.style.opacity = 1;
@@ -123,6 +126,7 @@ Array.from(document.getElementsByClassName("songItemPlay")).forEach(
 
               audioElement.src = "songs/m" + `${songIndex + 1}` + ".mp3";
               masterSongName.innerText = songs[songIndex].songName;
+              masterTimeStamp.innerText = songs[songIndex].duration;
               audioElement.currentTime = 0;
               audioElement.play();
               gif.style.opacity = 0;
@@ -140,6 +144,7 @@ document.getElementById("next").addEventListener("click", () => {
 
   audioElement.src = "songs/m" + `${songIndex + 1}` + ".mp3";
   masterSongName.innerText = songs[songIndex].songName;
+  masterTimeStamp.innerText = songs[songIndex].duration;
   audioElement.currentTime = 0;
   audioElement.play();
   gif.style.opacity = 1;
@@ -156,6 +161,7 @@ document.getElementById("previous").addEventListener("click", () => {
 
   audioElement.src = "songs/m" + `${songIndex + 1}` + ".mp3";
   masterSongName.innerText = songs[songIndex].songName;
+  masterTimeStamp.innerText = songs[songIndex].duration;
   audioElement.currentTime = 0;
   audioElement.play();
   gif.style.opacity = 1;
