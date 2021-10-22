@@ -85,7 +85,8 @@ border-radius: 24px;
     margin: 0 23px;
     
 }
-.timestamp i{
+.songItem i{
+    padding-right: 5px;
     cursor: pointer;
 }
 .songInfo{
