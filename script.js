@@ -7,6 +7,9 @@ let gif = document.getElementById("gif");
 let songItems = Array.from(document.getElementsByClassName("songItem"));
 let masterSongName = document.getElementById("masterSongName");
 let masterTimeStamp = document.getElementById("masterTimeStamp");
+let masterCurrentTime = document.getElementById("masterCurrentTime");
+
+var curTime='00:00:00';
 
 let songs = [
   {
@@ -51,6 +54,7 @@ songItems.forEach((element, i) => {
   element.getElementsByTagName("img")[0].src = songs[i].coverPath;
   element.getElementsByClassName("songName")[0].innerHTML = songs[i].songName;
   element.getElementsByClassName("timestamp")[0].innerHTML = songs[i].duration;
+  
 });
 
 // audioElement.play();
@@ -75,12 +79,18 @@ audioElement.addEventListener("timeupdate", () => {
   //update seek bar
   progress = parseInt((audioElement.currentTime / audioElement.duration) * 100);
   myProgressBar.value = progress;
+  // console.log(audioElement.currentTime);
+  console.log(msToTime(audioElement.currentTime * 1000));
+  curTime = msToTime(audioElement.currentTime * 1000);
+  
+  masterCurrentTime.textContent = curTime;
 });
 
 myProgressBar.addEventListener("change", () => {
   audioElement.currentTime =
     (myProgressBar.value * audioElement.duration) / 100;
 });
+
 
 const makeAllPlays = () => {
   Array.from(document.getElementsByClassName("songItemPlay")).forEach(
@@ -120,6 +130,7 @@ Array.from(document.getElementsByClassName("songItemPlay")).forEach(
         masterSongName.innerText = songs[songIndex].songName;
         masterTimeStamp.innerText = songs[songIndex].duration;
         audioElement.currentTime = 0;
+        // masterCurrentTime.innerText = curTime;
         audioElement.play();
         gif.style.opacity = 1;
         masterPlay.classList.remove("fa-play-circle");
@@ -135,6 +146,7 @@ Array.from(document.getElementsByClassName("songItemPlay")).forEach(
         masterSongName.innerText = songs[songIndex].songName;
         masterTimeStamp.innerText = songs[songIndex].duration;
         audioElement.currentTime = 0;
+        // masterCurrentTime.innerText = curTime;
         audioElement.play();
         gif.style.opacity = 0;
       }
@@ -153,6 +165,7 @@ document.getElementById("next").addEventListener("click", () => {
   masterSongName.innerText = songs[songIndex].songName;
   masterTimeStamp.innerText = songs[songIndex].duration;
   audioElement.currentTime = 0;
+  // masterCurrentTime.innerText = curTime;
   audioElement.play();
   gif.style.opacity = 1;
   masterPlay.classList.remove("fa-play-circle");
@@ -170,8 +183,22 @@ document.getElementById("previous").addEventListener("click", () => {
   masterSongName.innerText = songs[songIndex].songName;
   masterTimeStamp.innerText = songs[songIndex].duration;
   audioElement.currentTime = 0;
+  // masterCurrentTime.innerText = curTime;
   audioElement.play();
   gif.style.opacity = 1;
   masterPlay.classList.remove("fa-play-circle");
   masterPlay.classList.add("fa-pause-circle");
 });
+
+function msToTime(ms) {
+  let seconds = (ms / 1000).toFixed(0);
+  let minutes = (ms / (1000 * 60)).toFixed(2);
+  let hours = (ms / (1000 * 60 * 60)).toFixed(2);
+  let days = (ms / (1000 * 60 * 60 * 24)).toFixed(1);
+  if (seconds < 10) return "00:00:0"+seconds;
+  if (seconds > 9 && seconds < 60) return "00:00:"+seconds;
+  else if (minutes < 10) return "00:0"+minutes;
+  else if (minutes >9 && minutes< 60) return "00:"+minutes;
+  else if (hours < 24) return hours + " Hrs";
+  else return days + " Days";
+}
