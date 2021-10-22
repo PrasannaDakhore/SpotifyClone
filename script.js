@@ -89,11 +89,13 @@ Array.from(document.getElementsByClassName("songItemPlay")).forEach(
   (element) => {
         element.addEventListener("click", (e) => {
             // console.log(masterPlay.classList.contains.value);
-            songIndex = parseInt(e.target.id);
+          songIndex = parseInt(e.target.id);
+          // console.log(
+          //   audioElement.src.includes("m" + `${songIndex + 1}` + ".mp3")
+          // );
             if (
               masterPlay.classList.value.includes("fa-pause-circle") &&
-              audioElement.src ==
-                "http://127.0.0.1:5500/songs/m" + `${songIndex + 1}` + ".mp3"
+              audioElement.src.includes("m" + `${songIndex + 1}` + ".mp3")
             ) {
               makeAllPlays();
               audioElement.pause();
@@ -102,11 +104,11 @@ Array.from(document.getElementsByClassName("songItemPlay")).forEach(
               gif.style.opacity = 0;
             } else if (audioElement.paused || audioElement.currentTime <= 0) {
               makeAllPlays();
-            //   songIndex = parseInt(e.target.id);
-            //   console.log(
-            //     e.target.classList.value.includes(masterPlay.classList[2])
-            //   );
-            //   console.log(masterPlay.classList[2]);
+              //   songIndex = parseInt(e.target.id);
+              //   console.log(
+              //     e.target.classList.value.includes(masterPlay.classList[2])
+              //   );
+              //   console.log(masterPlay.classList[2]);
               e.target.classList.remove("fa-play-circle");
               e.target.classList.add("fa-pause-circle");
               audioElement.src = "songs/m" + `${songIndex + 1}` + ".mp3";
@@ -120,7 +122,7 @@ Array.from(document.getElementsByClassName("songItemPlay")).forEach(
             } else {
               makeAllPlays();
               audioElement.pause();
-            //   songIndex = parseInt(e.target.id);
+              //   songIndex = parseInt(e.target.id);
               e.target.classList.remove("fa-play-circle");
               e.target.classList.add("fa-pause-circle");
 
